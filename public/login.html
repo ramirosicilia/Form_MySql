@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Document</title>
+</head>
+<body> 
+   
+    <main>  
+
+      <video autoplay muted loop src="./video/✨  Space Ambient Music • Deep Relaxation Space Scenes [ 4K UHD ].mp4" loop></video>
+
+      <div class="contenedor"> 
+
+        <div class="container__cookies" id="container-cookies">
+          <h2>¿Desea usted aceptar las cookies, todos sus datos seran guardados por la empresa?</h2> 
+
+          <div class="container__button">
+            <button id="boton-si" type="button" value="si">Si</button>
+            <button id="boton-no" type="button" value="no">No</button>
+          </div>
+
+
+        </div>
+
+        <form class="form__login" action="http://localhost:7000/login" method="post" id="login"> 
+
+            <div>
+                <label for="">Ingrese su usuario</label> 
+                <input type="text" name="usuario" id="usuario-ingresado"> 
+
+                <div class="container__icon" id="container-login-1"> 
+                  <i class="bi bi-x-square icono"></i>  
+                  <p class="error">El nombre solo debe contener letras (incluyendo acentos), espacios y guiones."</p>
+              </div>
+
+            </div> 
+
+            <div>
+                <label for="">Ingrese su Password</label> 
+                <input type="password" name="usuario" id="usuario-password"> 
+
+                <div class="container__icon" id="container-login-2"> 
+                  <i class="bi bi-x-square icono"></i>  
+                  <p class="error">La contraseña debe tener entre 8 y 15 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un dígito, y un carácter especial de entre: @$!%*?&_ -.</p>
+              </div>
+
+
+            </div> 
+
+               <p><a href="./eliminar.html">¿desea eliminar su cuenta?</a></p>
+               <input type="submit" value="enviar" class="enviar"> 
+
+        </form>
+      
+
+      </div>
+    
+    </main>
+  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="./js/FormularioLogin.js"></script> 
+    <script type="module" src="./js/validaciones/ValidacionesLogin.js"></script>
+
+</body>
+</html>

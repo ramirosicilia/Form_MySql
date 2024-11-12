@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Document</title>
+</head>
+<body> 
+
+    <main> 
+        <video autoplay muted loop src="./video/✨  Space Ambient Music • Deep Relaxation Space Scenes [ 4K UHD ].mp4" loop></video>
+
+        <div class="contenedor">
+
+            <form class="form__eliminar" action="http://localhost:7000/eliminar-user" method="delete" id="formulario-eliminar"> 
+
+                <div class="container__contraseñas" >
+                   <label for="">Usuario</label>
+                   <input type="text" placeholder="ingrese su usuario" id="input-user"> 
+
+                    <div class="container__icon" id="container-A"> 
+                     <i class="bi bi-x-square icono"></i>  
+                     <p class="error">"El nombre de usuario debe tener entre 3 y 16 caracteres y solo puede contener letras, números, guiones y guiones bajos."</p>
+                    </div> 
+
+                </div> 
+
+                <div class="container__contraseñas" >
+                    <label for="">Password</label>
+                    <input type="password"  placeholder="ingrese su contraseña" id="input-pass" > 
+
+                    <div class="container__icon" id="container-B"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">La contraseña debe tener entre 8 y 15 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un dígito, y un carácter especial de entre: @$!%*?&_ -.</p>
+                    </div> 
+
+                </div>
+
+
+                  <input type="submit" value="enviar">
+            
+
+            </form>
+
+        </div>
+    </main>
+
+
+
+      <script type="module" src="./js/FormularioEliminar.js"></script>
+      <script type="module" src="./js/validaciones/ValidacionEliminar.js"></script>
+</body>
+</html>

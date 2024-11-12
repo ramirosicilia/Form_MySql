@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="./styles/styles.css">
+    </head>
+    <body>
+    
+        <main> 
+            <video autoplay muted loop src="./video/✨  Space Ambient Music • Deep Relaxation Space Scenes [ 4K UHD ].mp4" loop></video>
+
+            <div class="contenedor">
+                <form  action="http://localhost:7000/validar-contrasena" method="put" id="contraseñas-form"> 
+                
+                    <div class="container__contraseñas">
+                        <label for="">Ingrese su usuario</label> 
+                        <input type="text" name="usuario" id="ingreso-usuario"> 
+                    
+                        <div class="container__icon" id="container-1"> 
+                            <i class="bi bi-x-square icono"></i>  
+                            <p class="error">Solo permite letras mayúsculas, minúsculas, dígitos, guiones bajos _, y guiones -.Se acepta entre 3 y 16 caracteres.</p>
+                        </div>
+                    </div> 
+                
+                    <div class="container__contraseñas">
+                        <label for="">Ingrese su nuevo usuario</label> 
+                        <input type="text" name="usuario" id="nuevo-usuario"> 
+                    
+                        <div class="container__icon" id="container-2"> 
+                            <i class="bi bi-x-square icono"></i>  
+                            <p class="error">Solo permite letras mayúsculas, minúsculas, dígitos, guiones bajos _, y guiones -. Se acepta entre 3 y 16 caracteres.</p>
+                        </div>
+                    </div> 
+                
+                    <div class="container__contraseñas" >
+                        <label for="">Ingrese su nueva Contraseña</label> 
+                        <input type="password" name="contraseña" id="contraseñas-user"> 
+                    
+                        <div class="container__icon" id="container-3"> 
+                            <i class="bi bi-x-square icono"></i>  
+                            <p class="error">La contraseña debe tener entre 8 y 15 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un dígito, y un carácter especial de entre: @$!%*?&_ -.</p>
+                        </div>
+                    </div>  
+                
+                    <div class="container__contraseñas" > 
+                        <label for="">Reingrese su nueva contraseña</label> 
+                        <input type="password" name="contraseñaRepetida" id="contraseñas-user-2"> 
+                    
+                        <div class="container__icon" id="container-4"> 
+                            <i class="bi bi-x-square icono"></i>  
+                            <p class="error">La contraseña debe tener entre 8 y 15 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un dígito, y un carácter especial de entre: @$!%*?&_ -.</p>
+                        </div>
+                    </div>
+                
+                    <input type="submit" value="Enviar" class="enviar"> 
+                
+                </form>
+            </div>
+        </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script type="module" src="./js/FormularioContraseñas.js"></script>
+        <script type="module" src="./js/validaciones/ValidacionesContraseñas.js"> </script>
+
+    </body>
+    
+</html>

@@ -1,0 +1,337 @@
+*{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+} 
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #000000, #f5f5dc);
+    border: 2px solid #f5f5dc;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+} 
+
+ a{  
+    text-decoration: none; 
+    color:  hsla(240, 82%, 51%, 0.925); 
+
+} 
+
+main{
+    width: 100%;
+    height: auto;
+    position: relative;
+} 
+
+video{ 
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: -999999999999999;
+    top: 0px;
+    left: 0px;
+
+}
+
+ 
+.contenedor{
+   
+    width: 90%; 
+    margin: auto; 
+    overflow:hidden;
+} 
+
+label{
+    font-size: 14px; 
+    color:hsl(270, 30%, 30%);
+    font-weight: 800;
+    letter-spacing: 1px;
+
+} 
+
+
+form{ 
+    margin-top: 2.5rem;
+    display: flex;
+    width: 35%;
+    height: 93%;
+    flex-direction: column;
+    justify-content: center;
+    gap: .7rem;
+    align-items: center;
+    background-color: hsl(270, 20%, 90%);
+    box-shadow: inset 2px 4px 8px rgba(128, 0, 128, 0.2);
+    color: hsl(0, 0%, 0%);
+    border-radius: 10px; 
+    padding: 3rem;
+}  
+
+
+
+.form__eliminar{
+    height: 30rem;
+    gap: 4rem;
+}
+
+
+
+#login ,#contraseñas-form{
+    gap: 2rem;
+    margin-bottom: 2rem;
+    height: 80%;
+     
+} 
+
+
+
+
+
+div{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: .2rem;
+  
+  
+}  
+
+
+
+
+input{ 
+    padding: .3rem 4.5rem; 
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.enviar{
+    background-color: hsla(240, 82%, 51%, 0.925);;  
+    padding: .5rem 2rem;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}  
+
+ .btn-container{
+    font-size: 11px;
+    color: #000;
+    width: 60%;
+    display: flex;
+    justify-content:center;
+    flex-direction: row-reverse;
+    align-items: end;
+    gap: 2rem;
+    margin-left: 7rem;
+
+ 
+ } 
+
+ .btn-container p {
+    margin: 0; 
+     align-self: flex-end;
+     
+} 
+.form_contraseña{
+    gap: 2rem;
+} 
+.container__icon{
+
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    display: none;
+}
+
+
+
+.icono{
+   font-size: 9px;
+   width: 10%;
+   color:rgb(170, 0, 0) ;
+} 
+
+.error{
+    font-size: 10px;
+    color:rgb(170, 0, 0) ;
+} 
+
+
+.container__cookies{
+    width: 20%;
+    max-height: 6rem;
+   margin-top: 1rem;
+    border-radius: 10px;
+    background-color: hsl(270, 20%, 90%);
+    box-shadow: inset 2px 4px 8px rgba(128, 0, 128, 0.2);
+    height: auto;
+    padding: 2rem;
+    box-shadow: inset 2px 2px 2px #303030; 
+    transform: translateY(-200%);
+
+} 
+
+.active-cookies{ 
+    transform: translateY(0%);
+
+
+}
+
+
+.container__cookies h2{ 
+    color: #000;
+   font-size: 9px;
+   letter-spacing: 1px;
+   line-height: 1.5;
+   font-family: sans-serif;
+
+} 
+
+.container__button{
+    margin-top: 5%;
+    display: flex;
+    gap: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+} 
+
+button{
+    padding: .2rem 1.5rem;
+    background-color:  hsla(240, 82%, 51%, 0.925);
+    color: aliceblue;
+    border-radius: 10px;
+    font-size: 10px;
+    border: none;
+} 
+
+.imagen{
+    padding: .2rem 2rem; 
+    background-color: aliceblue;
+    font-size: 12px;
+}
+
+@media (max-width:1000px) { 
+    input{ 
+        padding: .4rem 3.5rem; 
+        
+
+    } 
+
+    form{
+        width: 50%;
+    }
+    
+} 
+
+@media (max-width:791px) { 
+
+    
+    form{
+        width: 60%;
+    }
+    input{ 
+        padding: .4rem 2rem; 
+
+    }
+    
+} 
+
+@media (max-width:530px) { 
+
+    
+    form{
+        width: 80%;
+    }
+    input{ 
+        padding: .4rem 2.5rem; 
+
+    }
+    
+} 
+
+
+@media (max-width:400px) { 
+
+    
+    form{
+        width: 90%;
+    }
+    input{ 
+        padding: .4rem 2.5rem; 
+
+    }
+    
+} 
+
+@media (max-width:350px) { 
+
+    
+    form{
+        width: 95%;
+    }
+    input{ 
+        padding: .3rem 1.5rem; 
+
+    }
+    
+} 
+
+@media (max-width:350px) { 
+
+    
+    form{
+        width: 95%;
+    }
+    input{ 
+        padding: .3rem 1.5rem; 
+
+    }
+    
+}
+
+
+@media (max-width:350px) { 
+
+    
+    form{
+        width: 95%;
+    }
+    input{ 
+        padding: .3rem 1.5rem; 
+
+    }
+    
+} 
+
+@media (max-width:292px) { 
+
+    
+    form{
+        width: 100%;
+    }
+    input{ 
+        padding: .3rem 1rem; 
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Document</title>
+</head>
+<body> 
+
+    <main> 
+        
+        <video autoplay muted loop src="./video/✨  Space Ambient Music • Deep Relaxation Space Scenes [ 4K UHD ].mp4" loop></video>
+
+        <div class="contenedor" id="contenedor"> 
+        
+            <form action="http://localhost:7000/formulario" method="post" enctype="multipart/form-data" id="formulario"> 
+
+                <div> 
+                    <label for="">nombre</label>
+                      <input class="nombre" type="text" placeholder="ingrese su nombre"  name="nombre"> 
+
+                      <div class="container__icon" id="container-ingreso-1"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">El nombre solo debe contener letras (incluyendo acentos), espacios y guiones."</p>
+                    </div>
+
+                </div> 
+
+                <div> 
+                    <label for="">apellido</label>
+                      <input class="apellido" type="text" placeholder="ingrese su apellido"  name="apellido"> 
+
+                      <div class="container__icon" id="container-ingreso-2"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">"El apellido solo debe contener letras (incluyendo acentos), espacios y guiones."</p>
+                    </div>
+
+                </div> 
+
+                <div> 
+                     <label for="">Suba su foto</label>
+                     <input type="file" name="imagen" class="imagen" placeholder="suba su foto" accept=".jpg, .jpeg, .png" required>
+
+                </div> 
+
+
+
+                <div> 
+                     <label for="">e-mail</label>
+                      <input class="email__empleado" type="email" placeholder="ingrese su email" name="email"> 
+
+                      <div class="container__icon" id="container-ingreso-4"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">"Por favor, introduce un correo electrónico válido."</p>
+                    </div>
+
+                </div> 
+
+                <div> 
+                     <label for="">Usuario</label>
+                      <input class="usuario__empleados" type="text" placeholder="ingrese su usuario"  name="usuario"> 
+
+                      <div class="container__icon" id="container-ingreso-5"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">"El nombre de usuario debe tener entre 3 y 16 caracteres y solo puede contener letras, números, guiones y guiones bajos."</p>
+                    </div>
+
+                </div> 
+
+                <div> 
+                    <label for="">Password</label>
+                      <input class="usuario__contraseña" type="password" placeholder="ingrese su contraseña"  name="password"> 
+
+                      <div class="container__icon" id="container-ingreso-6"> 
+                        <i class="bi bi-x-square icono"></i>  
+                        <p class="error">La contraseña debe tener entre 8 y 15 caracteres, con al menos una letra mayúscula, una minúscula, un número y un carácter especial."</p>
+                    </div>
+
+                </div> 
+
+
+                <p><a href="./contraseña.html">¡no recuerdo mi contraseña!</a></p> 
+                <p><a href="./login.html">¡ya estoy Logueado!</a></p>
+
+                <input class="enviar" type="submit" value="enviar">
+
+            </form>  
+
+
+        
+        </div>
+
+    </main> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="./js/formularioIngreso.js"></script>
+    <script type="module" src="./js/validaciones/ValidacionesIngreso.js"></script>
+
+</body>
+</html>
