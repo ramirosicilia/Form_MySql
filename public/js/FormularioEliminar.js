@@ -23,15 +23,12 @@ import{validadEliminado} from "./validaciones/ValidacionEliminar.js"
 
   try {
       // Enviar los datos como JSON en el cuerpo de la solicitud
-      const responseEliminar = await fetch('http://localhost:7000/eliminar-user', {
+      const responseEliminar = await fetch(`http://localhost:7000/eliminar-user?usuarioDelete=${inputUser}&passwordDelete=${inputPass}`, {
           method: "DELETE", // Puedes usar POST si prefieres
           headers: {
               "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-              eliminarUsuario: inputUser,
-              eliminarPass: inputPass
-          })
+          
       });
 
       const data = await responseEliminar.json(); 

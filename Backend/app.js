@@ -37,6 +37,11 @@ app.use(cors({
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));  
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+
+
 
 
 
@@ -50,14 +55,9 @@ const pool = await mysql.createPool({
 
 const uuid=uuidv4()
 
-app.get('/inicio', async (req, res) => { 
-    const [row] = await pool.query("SELECT * FROM empleados"); 
-    console.log(row); 
-    res.json(row);
-});  
+
 
 const uploaddirectorio = path.join(__dirname, 'uploads'); 
-console.log()
 
 const storage = multer.diskStorage({ 
 
@@ -70,18 +70,26 @@ const storage = multer.diskStorage({
     }
   });
   
-  const upload = multer({ storage: storage });
+  const upload = multer({ storage: storage }); 
+  console.log(upload)
 
 
 
 app.post('/formulario',upload.single('imagen') ,async (req, res) => {  
-    const { nombre, apellido, email,imagen ,usuarios, contraseña } = req.body; 
+    const { nombre, apellido, email,usuarios, contrasena } = req.body; 
+    console.log( nombre, apellido, email,usuarios, contrasena)
+    
+    const imagen = req.file ? req.file.filename : null; // Asegura que haya una imagen 
+    console.log(imagen)
 
-    console.log(imagen); 
-    const url=`http://localhost:${port}/formulario/${imagen}`
+    // Construir la URL de la imagen si se cargó correctamente
+    const url = imagen ? `http://localhost:${port}/uploads/${imagen}` : null; 
+    console.log(url)
+
+
 
     try { 
-        let pass = await bcrypt.hash(contraseña, 10);  
+        let pass = await bcrypt.hash(contrasena, 10);  
         console.log(pass);
 
         if ( !nombre || !apellido || !email || !usuarios || !pass) { 
@@ -139,7 +147,31 @@ app.get('/verificar-email/:token', async (req, res) => {
         console.error('Error en la verificación:', error.message);
         res.status(403).json({ err: 'Token no válido o expirado' });
     }
-});
+}); 
+
+app.get("/recibir-info",async(req,res)=>{ 
+
+    try{ 
+        const [usuarios]= await pool.query("SELECT * FROM empleados") 
+
+        if(!usuarios.length){
+            return res.status(400).send('no se encontraron los usuarios')
+        }
+
+        res.json(usuarios[0])
+    
+        
+
+    } 
+
+    catch(err){
+        res.status(500).send('hubo un error al recibir los usuarios')
+    }
+
+   
+
+
+})
 
 
 
@@ -174,7 +206,7 @@ app.post("/login", async (req, res) => {
             return res.status(401).json({ err: 'Contraseña incorrecta' });
         } 
 
-        res.status(200).json({ respuesta: "https://www.youtube.com", token });
+        res.status(200).json({ respuesta:'http://localhost:7000/pages.html', token });
     } catch (err) {
         console.error('Error en el login:', err.message);
         res.status(500).send('Error en la base de datos'); 
@@ -232,7 +264,10 @@ app.put("/validar-contrasena", async (req, res) => {
 
 
 app.delete("/eliminar-user", async (req, res) => {
-    const { eliminarUsuario, eliminarPass } = req.body;
+    const {usuarioDelete, passwordDelete } = req.query; 
+
+    let eliminarUsuario=usuarioDelete 
+    let eliminarPass=passwordDelete
     console.log(eliminarUsuario,eliminarPass)
     try{ 
         const [user] = await pool.query("SELECT usuarios, contrasenas, email FROM empleados WHERE usuarios=?", [eliminarUsuario]);
@@ -287,7 +322,7 @@ app.get("/ruta-reenvio/:token",async( req,res)=>{
 
        
      
-         res.redirect("https://www.youtube.com/youtube")  
+         res.redirect('http://localhost:7000/pages.html')  
 
     } 
 

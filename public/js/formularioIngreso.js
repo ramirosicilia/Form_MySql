@@ -11,32 +11,33 @@ formularioIngreso.addEventListener("submit", async (e) => {
   let emailEmpleado = document.querySelector(".email__empleado").value;
   let usuarioEmpleado = document.querySelector(".usuario__empleados").value; 
   let usuarioContraseña = document.querySelector(".usuario__contraseña").value; 
-  let inputImagen = document.querySelector(".imagen").value;
+  let inputImagen = document.querySelector(".imagen").files[0];
+
 
   localStorage.setItem("email",JSON.stringify(emailEmpleado)) 
 
   // Llamar a la función de validación
   if (!validarFormularioIngreso()) {
     return; // Si hay errores, no continuar
-  }
+  } 
 
-  try { 
-
-  
  
+
+  try {  
+
+    let formData=new FormData()  
+
+    formData.append("nombre",inputNombre) 
+    formData.append("apellido",inputApellido)
+    formData.append("email",emailEmpleado)
+    formData.append("usuarios",usuarioEmpleado)
+    formData.append("contrasena",usuarioContraseña)
+    formData.append("imagen",inputImagen)
+
+    
     const response = await fetch("http://localhost:7000/formulario", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        nombre: inputNombre,
-        apellido: inputApellido,
-        imagen:inputImagen,
-        email: emailEmpleado,
-        usuarios: usuarioEmpleado,
-        contraseña: usuarioContraseña,
-      }),
+      body:formData
     });
 
     // Asegúrate de que la respuesta es correcta antes de procesar
