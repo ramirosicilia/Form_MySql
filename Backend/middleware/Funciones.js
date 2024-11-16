@@ -1,8 +1,11 @@
-import dotenv, { config } from "dotenv"; 
+
 import jwt from "jsonwebtoken";
 import mysql from "mysql2/promise";
+import dotenv from "dotenv";
+dotenv.config();
 
-config() 
+
+
 
 const pool = await mysql.createPool({
     host: process.env.HOST,
@@ -19,7 +22,7 @@ export async function queryDelete(req,res){
 
     try {
         // Verificación del token usando jwt.verify
-        const verificacion = jwt.verify(Token, process.env.JTW_BORRADO);
+        const verificacion = jwt.verify(Token, process.env.JWT_BORRADO);
         console.log("Token verificado:", verificacion);
 
         // Verifica si el token es válido (si verificacion contiene datos)
@@ -28,10 +31,15 @@ export async function queryDelete(req,res){
         }
 
         
-        const [prueba] = await pool.query("DELETE FROM empleados WHERE email=?", [verificacion.email]);
+        const [prueba] = await pool.query("DELETE FROM empleados WHERE email=?", [verificacion.email]); 
+        console.log(prueba)
+
+        
         console.log("Resultado de la eliminación:", prueba);
-        res.redirect("http://localhost:7000");
-          return prueba[0]
+        res.redirect("http://localhost:7000"); 
+
+
+       
    
      
     } 
@@ -43,7 +51,27 @@ export async function queryDelete(req,res){
 
 
    
-} 
+}  
+
+ export function renovacionToken(req,res){
+    try{ 
+        const token=req.params.token  
+
+        if(!token) return res.status(400).send('hubo un error en la autenticacion')  
+
+       const verificacion=jwt.verify(token,process.env.JWT_RECUPERACION_MAIL) 
+
+       
+     
+         res.redirect('http://localhost:7000/pages.html')  
+
+    } 
+
+    catch(err){
+        res.status(500).json({message:'hubo un error en la base de datos',err})
+    }
+
+ }
 
 export function authenticateToken(req, res, next) {
     const token = req.headers['authorization']?.split(' ')[1] || req.cookies.token;

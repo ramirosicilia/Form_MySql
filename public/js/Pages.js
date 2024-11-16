@@ -26,7 +26,7 @@ async function recibirData(){
 
     arreData=[dat] 
 
-
+ console.log(arreData)
 
     arreData.forEach(element=>{ 
         containerPages.innerHTML=` 

@@ -99,7 +99,7 @@ formularioLogin.addEventListener("submit", async (e) => {
         // Guarda el token en la cookie
         if (datos.token) {
             document.cookie = `token=${datos.token}; path=/;`; 
-            let obtenerCookie = await obtenerCookies();
+                  await obtenerCookies();
         
         } else {
             alert("Token no recibido");
