@@ -2,6 +2,7 @@
 import jwt from "jsonwebtoken";
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
+import { emailModelDelete} from "../model/Db.js";
 dotenv.config();
 
 
@@ -31,16 +32,13 @@ export async function queryDelete(req,res){
         }
 
         
-        const [prueba] = await pool.query("DELETE FROM empleados WHERE email=?", [verificacion.email]); 
-        console.log(prueba)
+           await emailModelDelete(verificacion)
+    
 
         
-        console.log("Resultado de la eliminación:", prueba);
+        console.log("Resultado de la eliminación:");
         res.redirect("http://localhost:7000"); 
 
-
-       
-   
      
     } 
     catch (err) {

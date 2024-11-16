@@ -134,4 +134,15 @@ export async function elimininarUsuario(eliminar) {
     } catch (err) {
         return { status: 500, json: { err: 'Ocurrió un error' } };
     }
-}
+} 
+
+export async function emailModelDelete(verificacion) {
+    try {
+      const result = await pool.query("DELETE FROM empleados WHERE email = ?", [verificacion.email]);
+      return result;  // O puedes manejar el resultado como necesites
+    } catch (error) {
+      console.error("Error al eliminar el empleado:", error);
+      throw error;  // Lanza el error para que sea manejado fuera de la función si es necesario
+    }
+  }
+  

@@ -10,7 +10,7 @@ import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 import path from "path";
 import cookieParser from "cookie-parser";
-import { queryDelete } from "../middleware/Funciones.js";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -191,7 +191,8 @@ export const eliminarController = async (req, res) => {
     const { usuarioDelete, passwordDelete } = req.query;
 
     try {
-        const usereliminado = await elimininarUsuario(usuarioDelete);
+        const usereliminado = await elimininarUsuario(usuarioDelete); 
+        console.log(usereliminado)
         const passWordEliminar = usereliminado[0].contrasenas; 
         console.log(passWordEliminar)
 
@@ -212,7 +213,6 @@ export const eliminarController = async (req, res) => {
        
        
 
-   
 
         res.status(200).json({ res: "Respuesta exitosa" });
 
