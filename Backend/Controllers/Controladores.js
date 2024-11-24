@@ -12,6 +12,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 
 import dotenv from "dotenv";
+
 dotenv.config();
 
 
@@ -57,12 +58,14 @@ export const respuestaInsercion = async (req, res) => {
         return res.status(500).json({ error: 'Formato de retorno inesperado' });
     }
 
-    const [, resultado] = resultadoInsercion; 
-
+    const [existentes, ,resultado] = resultadoInsercion; 
+    console.log(existentes)
+ 
         const tokeMail = jwt.sign({ email }, process.env.JWT_SECRET_EMAIL, { expiresIn: '1h' });
-        await validarMail(email, tokeMail);
+        await validarMail(email, tokeMail); 
 
-        res.json(resultado);
+       
+         res.json({resp:existentes})
 
     } catch (err) {
         console.error('Error al recibir los datos:', err);
@@ -95,7 +98,7 @@ export const obtenerUsers = async (req, res) => {
             return res.status(400).json({ err: 'No hay usuarios en la base de datos' });
         }
 
-        res.render('pages',{users:usuarios[0]});
+        res.render('pages',{users:usuarios});
 
     } catch (err) {
         console.error('Error al recibir los usuarios:', err);
@@ -140,7 +143,7 @@ export const loginController = async (req, res) => {
         });
 
         // Responde con éxito
-        res.status(200).json({ respuesta: 'http://localhost:7000/pages.html', token });
+        res.status(200).json({ respuesta: 'http://localhost:7000/obtener-Info', token });
     } catch (err) {
         console.error('Error al recibir los datos de la base de datos:', err);
         res.status(500).json({ error: 'Error interno del servidor' });

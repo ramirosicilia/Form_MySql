@@ -38,19 +38,23 @@ formularioIngreso.addEventListener("submit", async (e) => {
     const response = await fetch("http://localhost:7000/formulario", {
       method: "POST",
       body:formData
-    });
+    }); 
+    console.log(response)
+
+
+    
 
     // Asegúrate de que la respuesta es correcta antes de procesar
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    
+    console.log(response)
     let data = await response.json(); 
     console.log(data)
 
     // Manejar la respuesta del servidor
-    if (data.err) {
-      alert("Usuario o email ya existen");
+    if (data.resp) {
+      alert(data.resp);
     } else {
       alert(`Por favor, ${data[0].nombre} verifique su email para continuar`);
 

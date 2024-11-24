@@ -61,7 +61,7 @@ export async function queryDelete(req,res){
 
        
      
-         res.redirect('http://localhost:7000/pages.html')  
+         res.redirect('http://localhost:7000/obtener-info')  
 
     } 
 

@@ -21,7 +21,7 @@ export async function creacionUsuarios(input, url) {
         const [existentes] = await pool.query("SELECT usuarios, email FROM empleados WHERE usuarios=? OR email=?", [usuarios, email]);
 
         if (existentes.length > 0) {
-            return { status: 400, json: { err: "Usuario ya existente" } };
+            return { status: 400, json: { err: "Usuario o email  ya existenten" } };
         }
         
 
@@ -29,7 +29,7 @@ export async function creacionUsuarios(input, url) {
         const [row] = await pool.query("INSERT INTO empleados (uuid, nombre, apellido, usuarios, imagenes, contrasenas, email) VALUES (?, ?, ?, ?, ?, ?, ?)", [uuid, nombre, apellido, usuarios, url, pass, email]);
         const [result] = await pool.query("SELECT nombre FROM empleados WHERE uuid=?", [uuid]);
 
-        return [row, result];
+        return [existentes,row, result];
     } catch (err) {
         console.log('Hubo un error en las consultas a la base de datos', err);
     }
