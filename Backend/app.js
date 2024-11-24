@@ -3,6 +3,8 @@ import path from "path";
 import cors from "cors"; 
 import router from "./router/rutas.js";
 import { fileURLToPath } from "url"; 
+import pkg from "ejs" 
+import morgan from "morgan";
 
 
 
@@ -10,12 +12,16 @@ import { fileURLToPath } from "url";
 const app = express();  
 const port = 7000;
 
+app.use(morgan('dev'))
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json()); 
+
+app.set('view engine','ejs') 
+app.set("views",path.join(__dirname,'../public/views'))
 
 app.use(cors({
     origin: [

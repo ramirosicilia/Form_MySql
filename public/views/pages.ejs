@@ -35,7 +35,28 @@
 
             <div  class="container__pages">
 
-                <button class="button_style" type="button">enviar</button>
+         <% users.forEach(user=>{ %> 
+            <div class="contenedor__pagina"> 
+
+                <figure >
+                    <img class="imagen__logeo" src="<% user.imagenes%>" alt="">
+                </figure> 
+
+
+                <div class="info">
+                    <h2>Usuario: <%user.usuarios%></h2>
+                    <h2>Nombre: <%user.nombre%></h2>
+                    <h2>Apellido:<%user.apellido%></h2>
+                    <label for="">escribe un post</label>
+                    <textarea name="textarea" id=""></textarea>
+           
+                </div>
+
+            </div>
+    
+
+
+        <% }) %>
 
             </div>
 
@@ -46,6 +67,5 @@
 
 
 
-    <script src="./js/Pages.js"></script>
 </body>
 </html>

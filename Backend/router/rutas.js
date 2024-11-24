@@ -7,16 +7,17 @@ import {eliminarController} from "../Controllers/Controladores.js"
 import {upload} from "../Controllers/Controladores.js" 
 import {queryDelete,authenticateToken, renovacionToken } from "../middleware/Funciones.js" 
 
-
-
-
 import express from 'express';
+
+
+
+
 
 const router = express.Router(); 
 
 router.post('/formulario',upload.single('imagen') , respuestaInsercion) 
 router.get('/verificar-email/:token',verificarMailControlador) 
-router.get("/recibir-info",obtenerUsers)  
+router.get("/obtener-info",obtenerUsers)  
 router.post("/login",loginController) 
 router.put("/validar-contrasena",validarController) 
 router.delete("/eliminar-user",eliminarController) 

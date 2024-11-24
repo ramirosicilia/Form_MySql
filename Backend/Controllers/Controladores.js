@@ -95,7 +95,7 @@ export const obtenerUsers = async (req, res) => {
             return res.status(400).json({ err: 'No hay usuarios en la base de datos' });
         }
 
-        res.json(usuarios[0]);
+        res.render('pages',{users:usuarios[0]});
 
     } catch (err) {
         console.error('Error al recibir los usuarios:', err);
